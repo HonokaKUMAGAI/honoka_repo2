@@ -1,3 +1,5 @@
-src/main/resources/application.properties
+# application.propertiesを除外
+/src/main/resources/application.properties
 
-src/main/java/com.example.demo/MyService
+# MyServiceを除外
+/src/main/java/com/example/demo/MyService
