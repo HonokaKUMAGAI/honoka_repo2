@@ -3,3 +3,4 @@
 
 # MyServiceを除外
 /src/main/java/com/example/demo/MyService
+src/main/resources/application.properties
