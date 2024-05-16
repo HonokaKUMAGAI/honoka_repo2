@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Filtered Persons</title>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+		}
+
+		h1,
+		p,
+		h3,
+		form {
+			text-align: center;
+			color: #333;
+		}
+
+		table {
+			width: 80%;
+			margin: 20px auto;
+			border-collapse: collapse;
+			background-color: #fff;
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+		}
+
+		thead {
+			background-color: #007bff;
+			color: #fff;
+		}
+
+		th,
+		td {
+			padding: 12px 15px;
+			border: 1px solid #ddd;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>ネアポリスのギャングたち</h1>
+	<p>みんなの出身地や年齢は捏造です。真に受けないでください。<br>このWebページは元作品および原作者様とまったく関係はございません。</p>
+	<h3>年齢でフィルタリングしてみる</h3>
+	<form action="/gangs_filtered" method="post">
+		<label for="age">年齢:</label>
+		<input type="number" id="age" name="age" required>
+		<br>
+		<input type="radio" id="under" name="condition" value="under" checked>
+		<label for="under">未満</label>
+		<input type="radio" id="over" name="condition" value="over">
+		<label for="over">以上</label>
+		<br>
+		<input type="submit" value="フィルタリング！">
+	</form>
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>年齢</th>
+				<th>出身地</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="gangs : ${person3}">
+				<td th:text="${gangs.id}">ID</td>
+				<td th:text="${gangs.name}">名前</td>
+				<td th:text="${gangs.age}">年齢</td>
+				<td th:text="${gangs.address}">出身地</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
